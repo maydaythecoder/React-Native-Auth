@@ -4,14 +4,14 @@ import { ScrollView } from 'react-native';
 import { AuthForm } from '@/components/ui/AuthForm';
 import { AuthenticatedScreen } from '@/components/ui/AuthenticatedScreen';
 import { AuthStyles } from '@/styles/AuthStyles';
-import { useLogout } from '@/hooks/Logout';
-import { useAuth } from '@/hooks/UseAuth';
+import { UseAuth } from '@/hooks/UseAuth';
+import { HandleAuth } from '@/hooks/HandleAuth';
 WebBrowser.maybeCompleteAuthSession();
 
 export default function AuthScreenWrapper() {
 
-  const { user } = useLogout();
-  const { email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication } = useAuth();
+  const { user } = UseAuth();
+  const { email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication } = HandleAuth();
 
   return (
     <ScrollView contentContainerStyle={AuthStyles.container}>
