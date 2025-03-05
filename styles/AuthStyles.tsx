@@ -44,4 +44,15 @@ export const AuthStyles = StyleSheet.create({
       textAlign: 'center',
       marginBottom: 20,
     },
+    googleButton: {
+      backgroundColor: '#db4437',
+      marginTop: 10,
+      paddingVertical: 10,
+      borderRadius: 4,
+    },
+    googleButtonText: {
+      color: 'white',
+      textAlign: 'center',
+      fontWeight: 'bold',
+    },
   });

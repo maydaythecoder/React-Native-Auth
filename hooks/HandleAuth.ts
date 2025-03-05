@@ -1,5 +1,5 @@
-import { auth } from "@/hooks/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth } from "@/firebase/firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { UseAuth } from "./UseAuth";
 import { useState } from "react";
 
@@ -28,5 +28,28 @@ export const HandleAuth = () => {
         }
     };
 
-    return { email, setEmail, password, setPassword, isLogin, setIsLogin, handleAuthentication };
+    const handleGoogleSignIn = async () => {
+        try {
+            const provider = new GoogleAuthProvider();
+            provider.setCustomParameters({ prompt: 'select_account' });
+            await signInWithPopup(auth, provider);
+        } catch (error) {
+            let errorMessage = 'Google authentication failed';
+            if (error instanceof Error) {
+                errorMessage = error.message;
+            }
+            console.error('Google sign-in error:', errorMessage);
+        }
+    };
+
+    return { 
+        email, 
+        setEmail, 
+        password, 
+        setPassword, 
+        isLogin, 
+        setIsLogin, 
+        handleAuthentication,
+        handleGoogleSignIn
+    };
 };

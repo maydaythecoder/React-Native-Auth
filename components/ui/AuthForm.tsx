@@ -9,7 +9,8 @@ export const AuthForm = ({
   setPassword, 
   isLogin, 
   setIsLogin, 
-  handleAuthentication 
+  handleAuthentication,
+  handleGoogleSignIn
 }: {
   email: string;
   setEmail: (email: string) => void;
@@ -18,6 +19,7 @@ export const AuthForm = ({
   isLogin: boolean;
   setIsLogin: (isLogin: boolean) => void;
   handleAuthentication: () => Promise<void>;
+  handleGoogleSignIn: () => Promise<void>;
 }) => {
   return (
     <View style={AuthStyles.authContainer}>
@@ -39,6 +41,14 @@ export const AuthForm = ({
       />
       <View style={AuthStyles.buttonContainer}>
         <Button title={isLogin ? 'Sign In' : 'Sign Up'} onPress={handleAuthentication} color="#3498db" />
+      </View>
+
+      <View style={AuthStyles.buttonContainer}>
+        <Button 
+          title="Sign in with Google" 
+          onPress={handleGoogleSignIn} 
+          color="#db4437" 
+        />
       </View>
 
       <View style={AuthStyles.bottomContainer}>

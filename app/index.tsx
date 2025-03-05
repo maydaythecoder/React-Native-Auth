@@ -2,14 +2,13 @@ import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
 import { AuthForm } from '@/components/ui/AuthForm';
-import { AuthenticatedScreen } from '@/components/ui/AuthenticatedScreen';
 import { AuthStyles } from '@/styles/AuthStyles';
 import { UseAuth } from '@/hooks/UseAuth';
 import { HandleAuth } from '@/hooks/HandleAuth';
-import Homescreen from '@/components/ui/Homescreen';
+import App from './(tabs)';
 WebBrowser.maybeCompleteAuthSession();
 
-export default function App() {
+export default function AuthScreenWrapper() {
 
   const { user } = UseAuth();
   const { 
@@ -20,16 +19,16 @@ export default function App() {
     isLogin, 
     setIsLogin, 
     handleAuthentication,
-    handleGoogleSignIn  // Destructure the new method
+    handleGoogleSignIn  
   } = HandleAuth();
 
   return (
     <ScrollView contentContainerStyle={AuthStyles.container}>
       {user ? (
-        <Homescreen />
+        <App />
       ) : (
         <>
-        <Text>Hello</Text>
+        <Text>harro</Text>
         <AuthForm
           email={email}
           setEmail={setEmail}
@@ -38,7 +37,7 @@ export default function App() {
           isLogin={isLogin}
           setIsLogin={setIsLogin}
           handleAuthentication={handleAuthentication}
-          handleGoogleSignIn={handleGoogleSignIn}  // Pass the new prop
+          handleGoogleSignIn={handleGoogleSignIn}
         />
         </>
       )}
