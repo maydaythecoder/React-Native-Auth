@@ -1,6 +1,6 @@
 
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, Text } from 'react-native';
 import { AuthForm } from '@/components/ui/AuthForm';
 import { AuthStyles } from '@/styles/AuthStyles';
@@ -24,8 +24,9 @@ export default function AuthScreenWrapper() {
   } = HandleAuth();
 
   // If user is authenticated, redirect to tabs
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
+      console.log("User authenticated, redirecting to tabs");
       router.replace('/(tabs)');
     }
   }, [user, router]);
