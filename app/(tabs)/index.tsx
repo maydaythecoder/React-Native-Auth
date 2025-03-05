@@ -1,47 +1,33 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
-import { AuthForm } from '@/components/ui/AuthForm';
-import { AuthenticatedScreen } from '@/components/ui/AuthenticatedScreen';
-import { AuthStyles } from '@/styles/AuthStyles';
+import { ScrollView, View, Text } from 'react-native';
 import { UseAuth } from '@/hooks/UseAuth';
 import { HandleAuth } from '@/hooks/HandleAuth';
-import Homescreen from '@/components/ui/Homescreen';
-WebBrowser.maybeCompleteAuthSession();
+import { AuthenticatedScreen } from '@/components/ui/AuthenticatedScreen';
+import { useRouter } from 'expo-router';
 
-export default function App() {
-
+export default function HomeScreen() {
+  const router = useRouter();
   const { user } = UseAuth();
-  const { 
-    email, 
-    setEmail, 
-    password, 
-    setPassword, 
-    isLogin, 
-    setIsLogin, 
-    handleAuthentication,
-    handleGoogleSignIn  // Destructure the new method
-  } = HandleAuth();
+  const { handleAuthentication } = HandleAuth();
+
+  // If no user is authenticated, redirect back to login
+  React.useEffect(() => {
+    if (!user) {
+      router.replace('/');
+    }
+  }, [user, router]);
+
+  if (!user) {
+    // Return empty view while redirecting
+    return null;
+  }
 
   return (
-    <ScrollView contentContainerStyle={AuthStyles.container}>
-      {user ? (
-        <Homescreen />
-      ) : (
-        <>
-        <Text>Hello</Text>
-        <AuthForm
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          isLogin={isLogin}
-          setIsLogin={setIsLogin}
-          handleAuthentication={handleAuthentication}
-          handleGoogleSignIn={handleGoogleSignIn}  // Pass the new prop
-        />
-        </>
-      )}
-    </ScrollView>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <AuthenticatedScreen 
+        user={user} 
+        handleAuthentication={handleAuthentication} 
+      />
+    </View>
   );
 }

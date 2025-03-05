@@ -1,3 +1,4 @@
+
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
@@ -5,11 +6,11 @@ import { AuthForm } from '@/components/ui/AuthForm';
 import { AuthStyles } from '@/styles/AuthStyles';
 import { UseAuth } from '@/hooks/UseAuth';
 import { HandleAuth } from '@/hooks/HandleAuth';
-import App from './(tabs)';
+import { useRouter } from 'expo-router';
 WebBrowser.maybeCompleteAuthSession();
 
 export default function AuthScreenWrapper() {
-
+  const router = useRouter();
   const { user } = UseAuth();
   const { 
     email, 
@@ -22,23 +23,28 @@ export default function AuthScreenWrapper() {
     handleGoogleSignIn  
   } = HandleAuth();
 
+  // If user is authenticated, redirect to tabs
+  React.useEffect(() => {
+    if (user) {
+      router.replace('/(tabs)');
+    }
+  }, [user, router]);
+
   return (
     <ScrollView contentContainerStyle={AuthStyles.container}>
-      {user ? (
-        <App />
-      ) : (
+      {!user && (
         <>
-        <Text>harro</Text>
-        <AuthForm
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          isLogin={isLogin}
-          setIsLogin={setIsLogin}
-          handleAuthentication={handleAuthentication}
-          handleGoogleSignIn={handleGoogleSignIn}
-        />
+          <Text style={AuthStyles.title}>Welcome</Text>
+          <AuthForm
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            isLogin={isLogin}
+            setIsLogin={setIsLogin}
+            handleAuthentication={handleAuthentication}
+            handleGoogleSignIn={handleGoogleSignIn}
+          />
         </>
       )}
     </ScrollView>
