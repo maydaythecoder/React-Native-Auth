@@ -26,7 +26,7 @@ export default function AuthScreenWrapper() {
   // If user is authenticated, redirect to tabs
   React.useEffect(() => {
     if (user) {
-      router.replace('/(tabs)');
+      router.replace('/app');
     }
   }, [user, router]);
 

@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { UseAuth } from '@/hooks/UseAuth';
 import { AuthStyles } from '@/styles/AuthStyles';
+import { signOut } from 'firebase/auth';
+import { auth } from '@/firebase/firebase';
 
 export default function Homescreen() {
   const { user } = UseAuth();
@@ -12,6 +14,7 @@ export default function Homescreen() {
       <Text style={AuthStyles.emailText}>
         Logged in as: {user?.email || 'Guest'}
       </Text>
+      <Button title="Sign Out" onPress={() => signOut(auth)} />
     </View>
   );
 }
