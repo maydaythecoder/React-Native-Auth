@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { UseAuth } from '@/hooks/UseAuth';
-import Homescreen from '@/components/ui/Homescreen';
+import { HomeScreen } from '@/screens';
 import { useRouter } from 'expo-router';
 
 export default function TabOneScreen() {
@@ -26,8 +26,14 @@ export default function TabOneScreen() {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      {user && <Homescreen />}
+    <View style={{ 
+      flex: 1,
+      width: '100%',
+      height: '100%',
+      alignItems: 'stretch',
+      justifyContent: 'flex-start'
+    }}>
+      {user && <HomeScreen />}
     </View>
   );
 }

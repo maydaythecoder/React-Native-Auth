@@ -23,4 +23,10 @@ export const Colors = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
+  status: {
+    available: '#4CAF50',
+    busy: '#f44336', 
+    away: '#ff9800',
+    default: '#9e9e9e'
+  },
 };

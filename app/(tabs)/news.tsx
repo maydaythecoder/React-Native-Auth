@@ -1,6 +1,7 @@
-import { ExploreScreen } from '@/screens';
+import { BLOG_POSTS } from '@/constants/Data/BlogData'; 
+import { BlogScreen } from '@/screens';
 import { View } from 'react-native';
-export default function Explore() {return (
+export default function News() {return (
 <View style={{ 
   flex: 1,
   width: '100%',
@@ -9,6 +10,6 @@ export default function Explore() {return (
   justifyContent: 'flex-start',
   paddingTop: 48
 }}>
-<ExploreScreen />
+<BlogScreen posts={BLOG_POSTS} />
 </View>
 );}

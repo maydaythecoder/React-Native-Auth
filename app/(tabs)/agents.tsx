@@ -1,6 +1,6 @@
-import { ExploreScreen } from '@/screens';
+import { AgentsScreen } from '@/screens';
 import { View } from 'react-native';
-export default function Explore() {return (
+export default function Agents() {return (
 <View style={{ 
   flex: 1,
   width: '100%',
@@ -9,6 +9,6 @@ export default function Explore() {return (
   justifyContent: 'flex-start',
   paddingTop: 48
 }}>
-<ExploreScreen />
+<AgentsScreen />
 </View>
 );}
