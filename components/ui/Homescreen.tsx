@@ -3,9 +3,8 @@ import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native';
 
-// Add responsive layout calculations
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width > 500 ? '30%' : '45%'; // Responsive card size
+const CARD_WIDTH = width > 500 ? '30%' : '45%';
 
 const styles = StyleSheet.create({
   statsGrid: {
@@ -18,14 +17,12 @@ const styles = StyleSheet.create({
   statCard: {
     width: CARD_WIDTH,
     aspectRatio: 1.5,
-    // ... rest of existing styles
   },
-  // Update container padding
   container: {
     flex: 1,
     paddingTop: Platform.select({
-      ios: 0, // Handled by tab bar contentStyle
-      default: 48 // Android/web
+      ios: 0,
+      default: 48
     }),
   },
 });
@@ -38,7 +35,7 @@ export default function Homescreen() {
       paddingTop: 48 + insets.top,
       paddingHorizontal: 16 
     }]}>
-      {/* ... existing content ... */}
+      {}
     </ScrollView>
   );
 } 

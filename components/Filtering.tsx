@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Input, InputField, Button, ButtonText, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton, CloseIcon, Icon, Heading, ModalBackdrop, Text, HStack, View } from '@gluestack-ui/themed';
 import { MaterialIcons } from '@expo/vector-icons';
-import { StyleSheet } from 'react-native';
 
 export default function Filtering () {
     const [showModal, setShowModal] = React.useState(false)
