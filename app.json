@@ -16,7 +16,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "jsEngine": "hermes",
+    "jsEngine": "jsc",
     "ios": {
       "supportsTablet": true
     },
