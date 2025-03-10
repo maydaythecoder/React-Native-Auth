@@ -1,4 +1,4 @@
-import "core-js/features/finalization-registry";
+import "core-js/stable";
 
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
