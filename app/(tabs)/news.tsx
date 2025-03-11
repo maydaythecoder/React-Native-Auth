@@ -1,6 +1,6 @@
 
+import { Blog } from '@/screens';
 import { View } from 'react-native';
-import { Blog as BlogScreen } from '@/screens';
 
 const News = () => {
   return (
@@ -8,7 +8,7 @@ const News = () => {
       flex: 1,
       width: '100%',
     }}>
-      <BlogScreen />
+      <Blog />
     </View>
   );
 };

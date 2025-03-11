@@ -1,6 +1,6 @@
 
-import { View } from 'react-native';
 import { Properties as PropertiesScreen } from '@/screens';
+import { View } from 'react-native';
 
 const Properties = () => {
   return (

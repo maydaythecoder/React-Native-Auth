@@ -1,6 +1,6 @@
 
+import { ExploreScreen } from '@/screens';
 import { View } from 'react-native';
-import { explore as ExploreScreen } from '@/screens'; 
 
 const Explore = () => {
   return (

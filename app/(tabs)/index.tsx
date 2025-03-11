@@ -1,16 +1,16 @@
 
+import { Home } from '@/screens';
 import { View } from 'react-native';
-import { Home as HomeScreen } from '@/screens';
 
-const Index = () => {
+const HomeScreen = () => {
   return (
     <View style={{ 
       flex: 1,
       width: '100%',
     }}>
-      <HomeScreen />
+      <Home />
     </View>
   );
 };
 
-export default Index;
+export default HomeScreen;
