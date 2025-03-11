@@ -4,7 +4,7 @@ import { UseAuth } from '@/hooks/UseAuth';
 import { HomeScreen } from '@/screens';
 import { useRouter } from 'expo-router';
 
-export default function TabOneScreen() {
+const App = () => {
   const { user } = UseAuth();
   const router = useRouter();
   const [hasMounted, setHasMounted] = React.useState(false);
@@ -26,14 +26,19 @@ export default function TabOneScreen() {
   }
 
   return (
-    <View style={{ 
-      flex: 1,
-      width: '100%',
-      height: '100%',
-      alignItems: 'stretch',
-      justifyContent: 'flex-start'
-    }}>
+    <View
+      style={{
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        alignItems: 'stretch',
+        justifyContent: 'flex-start',
+        paddingTop: 48,
+      }}
+    >
       {user && <HomeScreen />}
     </View>
   );
-}
+};
+
+export default App;

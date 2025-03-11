@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "25477607577",
+    "project_id": "propzy-web",
+    "storage_bucket": "propzy-web.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25477607577:android:06d6ab54f4220671560808",
+        "android_client_info": {
+          "package_name": "com.mycompany.propzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "25477607577-hefnf8jum0rjnf34mrhi1slfcmv35ti7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.propzy",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "25477607577-0tabhnklt8q7bntr171etdn35c9s7kr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF5fjl4ZoHgyq3RE8Ddc1bguA_CORtvqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "25477607577-0tabhnklt8q7bntr171etdn35c9s7kr7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "25477607577-24c6e3fd97ed5srgflnnlsfrtoii88ki.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.propzy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
