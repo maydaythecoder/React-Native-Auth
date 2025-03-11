@@ -1,16 +1,16 @@
 
 import { View } from 'react-native';
-import { explore as ExploreScreen } from '@/screens'; 
+import { Home as HomeScreen } from '@/screens';
 
-const Explore = () => {
+const Index = () => {
   return (
     <View style={{ 
       flex: 1,
       width: '100%',
     }}>
-      <ExploreScreen />
+      <HomeScreen />
     </View>
   );
 };
 
-export default Explore;
+export default Index;

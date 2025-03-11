@@ -1,19 +1,14 @@
-import React from 'react';
-import { PropertiesScreen } from '@/screens';
+
 import { View } from 'react-native';
+import { Properties as PropertiesScreen } from '@/screens';
 
 const Properties = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        width: '100%',
-        height: '100%',
-        alignItems: 'stretch',
-        justifyContent: 'flex-start',
-        paddingTop: 48
-      }}>
-    <PropertiesScreen />
+    <View style={{ 
+      flex: 1,
+      width: '100%',
+    }}>
+      <PropertiesScreen />
     </View>
   );
 };

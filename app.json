@@ -1,5 +1,17 @@
 {
   "expo": {
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    },
+    "plugins": [
+      "expo-router"
+    ],
     "extra": {
       "EXPO_PUBLIC_FIREBASE_API_KEY": "${process.env.EXPO_PUBLIC_FIREBASE_API_KEY}",
       "EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN": "${process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN}",
