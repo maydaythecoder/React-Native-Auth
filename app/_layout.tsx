@@ -2,7 +2,7 @@ import "core-js/stable";
 
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, SplashScreen as RouterSplashScreen } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -11,9 +11,18 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { initSentry } from '@/firebase/sentry';
+
+// Initialize Sentry as early as possible
+initSentry();
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+try {
+  SplashScreen.preventAutoHideAsync();
+} catch (e) {
+  // Handle potential splash screen errors in Expo Go
+  console.warn("SplashScreen error:", e);
+}
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -25,7 +34,16 @@ export default function RootLayout() {
   useEffect(() => {
     const hideSplash = async () => {
       if (loaded) {
-        await SplashScreen.hideAsync();
+        try {
+          // In Expo Go, we'll use RouterSplashScreen instead
+          if (__DEV__) {
+            RouterSplashScreen.hideAsync();
+          } else {
+            await SplashScreen.hideAsync();
+          }
+        } catch (e) {
+          console.warn("Error hiding splash screen:", e);
+        }
       }
     };
     hideSplash();

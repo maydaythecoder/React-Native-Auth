@@ -31,6 +31,13 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "@sentry/react-native/expo",
+        {
+          "organization": "your-sentry-org",
+          "project": "your-sentry-project"
+        }
       ]
     ],
     "extra": {
