@@ -12,6 +12,14 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { initSentry } from '@/firebase/sentry';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://8de9334dbd2fb39235dbbf8eaf418bab@o4508967046545408.ingest.us.sentry.io/4508967056310272',
+
+  // uncomment the line below to enable Spotlight (https://spotlightjs.com)
+  // spotlight: __DEV__,
+});
 
 // Initialize Sentry as early as possible
 initSentry();
