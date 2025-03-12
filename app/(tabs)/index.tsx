@@ -1,16 +1,16 @@
 
-import { Home } from '@/screens';
+import { HomeScreen } from '@/screens';
 import { View } from 'react-native';
 
-const HomeScreen = () => {
+function Home() {
   return (
     <View style={{ 
       flex: 1,
       width: '100%',
     }}>
-      <Home />
+      <HomeScreen />
     </View>
   );
 };
 
-export default HomeScreen;
+export default Home;

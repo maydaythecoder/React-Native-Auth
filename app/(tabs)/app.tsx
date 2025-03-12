@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 
-const AppScreen = () => {
+function AppScreen () {
   return (
     <View style={{ 
       flex: 1,

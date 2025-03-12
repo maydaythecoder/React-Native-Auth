@@ -2,7 +2,7 @@
 import { ExploreScreen } from '@/screens';
 import { View } from 'react-native';
 
-const Explore = () => {
+function Explore() {
   return (
     <View style={{ 
       flex: 1,

@@ -2,7 +2,7 @@
 import { AgentsScreen } from '@/screens';
 import { View } from 'react-native';
 
-const Agents = () => {
+function Agents() {
   return (
     <View style={{ 
       flex: 1,
