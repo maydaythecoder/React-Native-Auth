@@ -6,7 +6,7 @@ import { DUMMY_AGENTS } from '@/constants/Data/AgentData';
 import { Agent } from '@/types';
 import { Colors } from '@/constants';
 
-export default function AgentsScreen() {
+const AgentsScreen = () => {
   return (
     <ScrollView style={styles.container}>
       {DUMMY_AGENTS.map(agent => (
@@ -23,7 +23,8 @@ export default function AgentsScreen() {
       ))}
     </ScrollView>
   );
-}
+};
+export default AgentsScreen;
 
 const getStatusColor = (status: Agent['status']) => {
   switch (status) {

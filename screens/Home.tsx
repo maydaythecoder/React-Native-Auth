@@ -33,7 +33,7 @@ const ActivityItem = ({ icon, text }: { icon: keyof typeof MaterialIcons.glyphMa
   </View>
 );
 
-export default function Homescreen() {
+const HomeScreen = () => {
   const insets = useSafeAreaInsets();
 
   return (
@@ -69,7 +69,8 @@ export default function Homescreen() {
       </ThemedView>
     </ScrollView>
   );
-}
+};
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {

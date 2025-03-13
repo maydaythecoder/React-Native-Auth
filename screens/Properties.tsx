@@ -8,7 +8,7 @@ import { Property } from '@/types';
 import Filtering from '@/components/Filtering';
 const FALLBACK_IMAGE = 'https://plus.unsplash.com/premium_photo-1661915661139-5b6a4e4a6fcc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8fDA%3D';
 
-export default function PropertiesScreen() {
+const PropertiesScreen = () => {
   const [showModal, setShowModal] = React.useState(false)
   const [searchQuery, setSearchQuery] = useState('');
   const [properties, setProperties] = useState<Property[]>([]);
@@ -70,7 +70,8 @@ export default function PropertiesScreen() {
       </ScrollView>
     </View>
   );
-}
+};
+export default PropertiesScreen;
 
 const styles = StyleSheet.create({
   container: {

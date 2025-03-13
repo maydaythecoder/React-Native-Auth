@@ -2,7 +2,7 @@ import { StyleSheet, Image, Platform, ScrollView, TouchableOpacity } from 'react
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 
-export default function ExploreScreen() {
+const ExploreScreen = () => {
   return (
     <ThemedView style={styles.container}>
       <ScrollView>
@@ -42,7 +42,8 @@ export default function ExploreScreen() {
       </ScrollView>
     </ThemedView>
   );
-}
+};
+export default ExploreScreen;
 
 const styles = StyleSheet.create({
   container: {

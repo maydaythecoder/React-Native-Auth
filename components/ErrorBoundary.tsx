@@ -1,7 +1,6 @@
-
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import * as Sentry from '@sentry/react-native';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { logError } from '@/firebase/sentry';
 
 interface Props {
   children: ReactNode;
@@ -13,7 +12,7 @@ interface State {
   error: Error | null;
 }
 
-class ErrorBoundary extends Component<Props, State> {
+export default class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -23,9 +22,12 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log the error to Sentry
-    logError(error, { componentStack: errorInfo.componentStack });
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    if (!__DEV__) {
+      Sentry.captureException(error, {
+        extra: { componentStack: errorInfo.componentStack }
+      });
+    }
   }
 
   resetError = () => {
@@ -83,5 +85,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default ErrorBoundary;

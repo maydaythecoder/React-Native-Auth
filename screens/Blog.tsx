@@ -4,7 +4,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { BlogPost } from '@/types';
 
-export default function BlogScreen({ posts }: { posts: BlogPost[] }) {
+const BlogScreen = ({ posts }: { posts: BlogPost[] }) => {
   return (
     <ScrollView style={styles.container}>
       <ThemedText style={styles.header}>Real Estate Insights</ThemedText>
@@ -21,7 +21,8 @@ export default function BlogScreen({ posts }: { posts: BlogPost[] }) {
       ))}
     </ScrollView>
   );
-}
+};
+export default BlogScreen;
 
 const styles = StyleSheet.create({
   container: {
